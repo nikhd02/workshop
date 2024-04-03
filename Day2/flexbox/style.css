@@ -1,13 +1,12 @@
 .parent{
     background-color: aqua;
-    display: flex;
-    justify-content: space-around;
+   
 }
 .child{
     background-color: antiquewhite;
     border: 1px solid red;
-    width: 30px;
-    flex-basis: 40px;
+    width: 50px;
+    flex-basis: 100px;
     flex-shrink: 0;
 
 }
@@ -18,3 +17,27 @@
 .cart{
     flex-grow: 1;
 } */
+.parent1{
+    justify-content: space-around;
+    background-color: aqua;
+    display: flex;
+    flex-wrap: wrap;
+}
+.parent2{
+    justify-content: space-evenly;
+    background-color: aqua;
+    display: flex;
+    flex-wrap: wrap;
+}
+.parent3{
+    justify-content: space-between;
+    background-color: aqua;
+    display: flex;
+    flex-wrap: wrap;
+}
+.parent4{
+    justify-content: flex-end;
+    background-color: aqua;
+    display: flex;
+    flex-wrap: wrap;
+}

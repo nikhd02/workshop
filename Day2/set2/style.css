@@ -52,7 +52,7 @@
     box-shadow: none
 
 }
-.par{
+/* .par{
     & ol{
         background-color: aqua;
     }
@@ -65,10 +65,13 @@
             background-color: aqua;
         }
     }
-}
-ul{
+} */
+/* ul{
     li:nth-last-child(even){
         background-color: brown;
     }
 
+} */
+.par>div>ul{
+    background-color: chartreuse;
 }

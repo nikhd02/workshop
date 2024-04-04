@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+
+}
+
+.parent{
+    position: absolute;
+    background-color: bisque;
+    color:red;
+    
+    height: 400px;
+    width: 500px;
+
+}
+h1 {
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+p  {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 20%;
+    font-size: 18px;
+}
+
+/* @media(500px<= width <=700px)
+{
+    .parent{
+        background-color: rgb(191, 17, 234);
+        color:red;
+        height: 100px;
+        width: 50px;
+        align-items: center;
+    
+    }
+} */

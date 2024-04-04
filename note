@@ -1,0 +1,121 @@
+--- DAY 1 | HTML ---
+
+< > - starting tag
+</ > - ending tag
+
+- starting tag and ending tag make an _element_
+eg. <html> </html>
+
+## Tags in <head>
+- <meta> - Data about the website.
+- <style>
+- <link>
+etc.
+
+### Difference between <b> and <strong>
+- <strong> is a semantics tag
+- It will make the text bolder if the default text is already bold
+
+<b> vs <strong>
+<i> vs <em>
+<u> vs <ins>
+
+- <ins> is used with <del>
+
+
+### Block vs Inline
+- A block-level element always starts on a new line, and the browsers automatically add some space (a margin) before and after the element.
+- A block-level element always takes up the full width available (stretches out to the left and right as far as it can).
+
+- An inline element does not start on a new line.
+- An inline element only takes up as much width as necessary.
+
+### Target attribute in <a>
+
+Used in iframes
+- _blank -> new page
+- _self -> in the same iframe
+- _parent -> in the parent iframe
+- _top -> in the same window
+
+
+### Questions
+
+- Why index?
+- Why does h5 and h6 exist
+
+
+
+--- Day 2 | CSS ---
+
+heading-two : kebab-case -> CSS
+headingTwo : camelCase -> JS
+heading_two : snake_case -> Python
+HeadingTwo : PascalCase -> React
+
+
+## Margin and Padding
+
+margin: 16px; -> all;
+margin: 20px 10px 5px 15px; -> top right bottom left;
+margin: 20px 10px; -> top&bottom left&right;
+margin: 20px 10px 30px; -> top right&left bottom;
+
+OR 
+margin-left, margin-right, margin-top, margin-bottom;
+margin-block, margin-inline;
+
+~ Same for Padding
+
+
+## border-boxing
+content-box -> width = content
+border-box -> width = border (l & r) + content + Padding
+-> height = border (t & b) + content + Padding
+
+## center a div
+-> (should be a block, display: block)
+-> margin: 0 auto; / margin-inline: auto;
+
+
+## CSS UNITS
+1. px - pixel - absolute value - 1/96 inch
+2. em - relative to the font size of -
+--> in case of font-size: parent element
+--> any other case: itself
+3. rem - root em - relative to the font size of root element (<html>)
+4. vh - view height - relative to viewport height
+5. vw - view width - relative to viewport width
+6. % - relative to immediate parent
+
+
+## Pseudo
+
+: -> Pseudo Classes
+:: -> Pseudo Elements
+
+:first-child
+:last-child
+:nth-child(n)
+:nth-last-child(n)
+
+:first-of-type
+:last-of-type
+:nth-of-type(n)
+
+## Selectors
+
+space - descendant selector (all elements in an element)
+> - direct child selector
++ - adjacent sibling selector
+
+## FlexBox
+display: flex
+-> flex-direction
+-> flex-wrap
+-> align-items
+-> align-content
+-> align-self
+-> justify-content
+-> justify-self
+-> order

@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    position: static;
+    min-width: 100wh;
+    min-height: 100vh;
+    background-color: black;
+    color: aliceblue;
+}
+.parent{
+    background-color: aqua;
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,  -50%);
+}

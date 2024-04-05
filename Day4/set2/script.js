@@ -28,3 +28,22 @@
 //     }
 // }
 
+function submitForm(e){
+    e.preventDefault();
+    const t = e.target;
+    const res = {
+        hobbies: [],
+    }
+    for(let i=0 ;i<t.legth;i++){
+        const ty  = t.elements[i].type;
+        if(ty === "checkbox"){
+            if(t.elements[i].checked ) {
+                res.hobbies.push(t.elements[i].value);
+            }
+            
+        }else{
+            res [t.elements[i].name] = t.elements[i].value;
+        }
+    }
+   console.log(res);
+}

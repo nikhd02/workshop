@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .button{
+            border: 4px solid red;
+            box-shadow: 10px 8px 8px black;
+        }
+        form{
+            border: 2px  dotted blue;
+            padding: 5px;
+            margin-left: 30%;
+            margin-right: 30%;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>JavaScript</h1>
+    <!-- <button onclick="getInfo()">
+        Click me!
+    </button>
+    <div>
+        <p>First</p>
+        <p>Second</p>
+    </div> -->
+
+    <form action="">
+        <label for="fname">First Name:</label><br>
+        <input type="text" id="fname" name="firstname" onkeydown=fistNameChange(event)><br><br>
+        <label for="lastname">Last Name:</label><br>
+        <input type="text" id="lname" name="lastname"><br><br>
+        <label for="age">Age:</label><br>
+        <input type="number" id="age"  name="age" onchange=ageCheck(event)><br><br>
+        <label for="hobbies">Hobbies:</label><br>
+         <input type="checkbox" name="cricket"  id="c1">Cricket 
+         <input type="checkbox" name="football" id="c2">Football
+         <input type="checkbox" name="baseball" id="c3">Baseball
+        <br><br>
+        <input class="button" type="submit" value="Submit">
+        </select>
+    </form>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -63,3 +63,12 @@
 // ne.innerText = "Dynamic text";
 // console.log(ne);
 // document.body.appendChild(ne);
+
+const ne =document.createElement("h3");
+// ne.innerText = "Dynamic Text";
+// console.log(ne);
+// const firstDiv = document.getElementsByTagName("div");
+// firstDiv[1].appendChild(ne);
+
+const firstDiv = document.getElementsByTagName("div");
+firstDiv.removeChild(ne);

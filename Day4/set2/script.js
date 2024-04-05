@@ -10,13 +10,21 @@
 // // d.prepend('Adarsh');
 // }
 
-const fistNameChange = (e) =>{
-    console.log(e.target.value);
-}
-function ageCheck(e) {
-    if (e.target.value > 18) {
-        console.log("adult");
-    } else {
-        console.log("You are a minor, you can't vote!");
-    }
-}
+// const fistNameChange = (e) =>{
+//     const n= e.target.value;
+//     while(true)
+//     {
+//     if(n.length>3)
+//     {
+//         document.getElementById("Btn1").disabled = false;
+//     }
+// }
+// }
+// function ageCheck(e) {
+//     if (e.target.value > 18) {
+//         console.log("adult");
+//     } else {
+//         console.log("You are a minor, you can't vote!");
+//     }
+// }
+

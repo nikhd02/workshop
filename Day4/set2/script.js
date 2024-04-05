@@ -20,13 +20,13 @@
 //     }
 // }
 // }
-// function ageCheck(e) {
-//     if (e.target.value > 18) {
-//         console.log("adult");
-//     } else {
-//         console.log("You are a minor, you can't vote!");
-//     }
-// }
+function ageCheck(e) {
+    if (e.target.value > 18) {
+        console.log("adult");
+    } else {
+        console.log("You are a minor, you can't vote!");
+    }
+}
 
 function submitForm(e){
     e.preventDefault();
@@ -35,15 +35,18 @@ function submitForm(e){
         hobbies: [],
     }
     for(let i=0 ;i<t.legth;i++){
-        const ty  = t.elements[i].type;
-        if(ty === "checkbox"){
-            if(t.elements[i].checked ) {
-                res.hobbies.push(t.elements[i].value);
+        const ty = t[i].type;
+        if(ty!='submit'){
+            const vt = t[i].value;
+            const nm = t[i].value;
+
+            if(ty== 'checkbox' && t[i].checked ){
+                res.hobbies.push(vt);
             }
-            
-        }else{
-            res [t.elements[i].name] = t.elements[i].value;
+            if(ty!= 'checkbox'){
+                res[nm] = vl;
+            }
         }
     }
-   console.log(res);
+    console.log(res);
 }

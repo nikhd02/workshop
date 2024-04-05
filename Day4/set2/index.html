@@ -32,7 +32,7 @@
 
     <form action="">
         <label for="fname">First Name:</label><br>
-        <input type="text" id="fname" name="firstname" onkeydown=fistNameChange(event)><br><br>
+        <input type="text" id="fname" name="firstname"><br><br>
         <label for="lastname">Last Name:</label><br>
         <input type="text" id="lname" name="lastname"><br><br>
         <label for="age">Age:</label><br>
@@ -42,7 +42,7 @@
          <input type="checkbox" name="football" id="c2">Football
          <input type="checkbox" name="baseball" id="c3">Baseball
         <br><br>
-        <input class="button" id="Btn1" type="submit" value="Submit" disabled>
+        <input class="button" id="Btn1" type="submit" onclick="submitForm(event)" value="Submit">
         </select>
     </form>
 

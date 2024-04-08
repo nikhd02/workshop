@@ -7,17 +7,26 @@
 body {
     font-family: 'Open Sans', sans-serif;
     color: #333;
-    background: #e2f362;
+    background: #f0f0f0;
     display: grid;
+    align-items: center;
 }
 .news-card{
     margin-top: 10px;
     max-width: 400px;
-    max-height: 600px;
+    justify-content: space-around;
+    height: 300px;
     display: flex;
-    background-color: #43f0fc;
+    /* background-color: #43f0fc; */
     flex-direction: column;
     border: 2px  solid #020202;
+    /* align-items: center; */
+    float: left;
+    padding: 0 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+    text-align: center;
+    background-color: #33333375;
+    overflow: hidden;
     
 }
 img{

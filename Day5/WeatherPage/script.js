@@ -8,9 +8,13 @@ function fetchAPI(){
         const days = data.days;
         console.log(days);
         
+        for(let i=0;i<days.length;i++){
+        const arr = days[i];
         const row = document.createElement("tr");
+        tr.setAttribute("class", "tr");
         const cell = document.createElement("th");
-        cell.innerHTML = days.;
+        th.setAttribute("class", "th");
+        cell.innerHTML = arr.datetime;
         row.appendChild(cell);
 
         // const cel0 = document.createElement("th");
@@ -18,13 +22,15 @@ function fetchAPI(){
         // row.appendChild(cel0);
 
         const cel2 = document.createElement("th");
-        cel2.innerHTML = days.tempmax;
+        cel2.innerHTML = arr.tempmax;
         row.appendChild(cel2);
 
         const cel3 = document.createElement("th");
-        cel3.innerHTML = days.tempmin;
+        cel3.innerHTML = arr.tempmin;
         row.appendChild(cel3);
 
+
         root.append(row);
+        }
     }
-    // fetchAPI();  // Call the API
+    fetchAPI();  // Call the API

@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function fetchWeatherData(location) {
     const apiKey = 'YGCWVGSSWMNPYUZRGDH6QW3LA'; // Replace 'YOUR_API_KEY' with your actual API key
-    const apiUrl = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?unitGroup=us&key=${apiKey}&contentType=json`;
+    const apiUrl = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?unitGroup=uk&key=${apiKey}&contentType=json`;
 
     fetch(apiUrl)
         .then(response => {
@@ -42,8 +42,8 @@ function renderUI(data) {
     // Render current day information
     const currentDay = data.days[0];
     const currentDayHtml = `
+        <h1>${currentDay.temp} C</h1>
         <h2>${currentDay.datetime}</h2>
-        <p>Current Temp: ${currentDay.temp}</p>
         <p>Conditions: ${currentDay.conditions}</p>
         <p>Cloud Cover: ${currentDay.cloudcover}</p>
         <p>Humidity: ${currentDay.humidity}</p>
@@ -59,8 +59,8 @@ function renderUI(data) {
         const day = data.days[i];
         const cardHtml = `
             <div class="card">
-                <h3>${day.datetime}</h3>
-                <p>Temp: ${day.temp}</p>
+                <h3>${day.temp} C</h3>
+                <p>${day.datetime}</p>
                 <p>Conditions: ${day.conditions}</p>
             </div>
         `;

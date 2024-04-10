@@ -27,11 +27,17 @@
 // });
 // console.log(`\nArray after filtering for 'i': `,ans);
 
-const arr = ['India,delhi','India,Mumbai','India,Kolkata','China,Jhong','China,Beijing','USA,New York','USA,Washington Dc'];
+// const arr = ['India,delhi','India,Mumbai','India,Kolkata','China,Jhong','China,Beijing','USA,New York','USA,Washington Dc'];
 
-const ans = arr.filter((val)=> {
-    const ns = val.toLowerCase();
-        if(ns.includes('india'))return true;
-        else false;
+// const ans = arr.filter((val)=> {
+//     const ns = val.toLowerCase();
+//         if(ns.includes('india'))return true;
+//         else false;
+// });
+// console.log(`\nArray after filtering for 'india': `,ans);
+
+const arr = [10,22,34,50];
+const sum = arr.reduce((accumulator,currentVal)=>{
+    return accumulator + currentVal;
 });
-console.log(`\nArray after filtering for 'india': `,ans);
+console.log(sum);

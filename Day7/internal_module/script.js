@@ -68,8 +68,20 @@
 //.........................mini project.................................
 
 const http = require('http');
+const fs = require('fs');
+
+const data = fs.readFileSync('data.json');
+// const dataObj = JSON.parse(data);
+const dataObj = JSON.parse(data);
+
+// console.log(data);
+console.log(dataObj);
+
+const product = dataObj.products;
 
 // const page = '<h1>Welcome</h1>';
+
+
 
 const htmlTemplate = `
 <!DOCTYPE html>
@@ -85,15 +97,26 @@ const htmlTemplate = `
 
 const cardTemplate = `
     <div class="card">
-        <h2>_TITLE_</h2>
-        <p>_DESCRIPTION_</p>
+        <h1>_TITLE_</h1>
+        <h2>_DESCRIPTION_</h2>
 
-        <p>_PRICE_</p>
+        <h3>_PRICE_</h3>
     </div>
 `
 
 
-const page = htmlTemplate.replace('_PRODUCTS_CARDS_',cardTemplate);
+const card1 = cardTemplate.replace('_TITLE_', product[0].title)
+.replace('_DESCRIPTION_', product[0].description) 
+.replace('_PRICE_', product[0].price);
+
+const card2 = cardTemplate.replace('_TITLE_', product[1].title)
+.replace('_DESCRIPTION_',product[1].description) 
+.replace('_PRICE_', product[1].price)
+
+
+const page = htmlTemplate.replace('_PRODUCTS_CARDS_',card1+card2);
+
+
 
 const app = http.createServer((req, res) => {
     console.log('Request recived');

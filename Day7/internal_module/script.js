@@ -49,14 +49,58 @@
 // });
 // app.listen(3000);
 
+// const http = require('http');
+
+// const app = http.createServer((req, res) => {
+//     console.log('Request recived');
+//     console.log(req.url); 
+//     res.setHeader('Content-Type', 'text/html');
+
+//     res.end('<h3>hello</h3>');
+// });
+// app.listen(3000, () =>{
+//     console.log('................ Server Start ....................');
+// });
+
+
+
+
+//.........................mini project.................................
+
 const http = require('http');
+
+// const page = '<h1>Welcome</h1>';
+
+const htmlTemplate = `
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bloger's World</title>
+    </head>
+    <body>
+        _PRODUCTS_CARDS_
+    </body>
+</html>
+`
+
+const cardTemplate = `
+    <div class="card">
+        <h2>_TITLE_</h2>
+        <p>_DESCRIPTION_</p>
+
+        <p>_PRICE_</p>
+    </div>
+`
+
+
+const page = htmlTemplate.replace('_PRODUCTS_CARDS_',cardTemplate);
 
 const app = http.createServer((req, res) => {
     console.log('Request recived');
     console.log(req.url); 
     res.setHeader('Content-Type', 'text/html');
 
-    res.end('<h3>hello</h3>');
+    res.end(page);
 });
 app.listen(3000, () =>{
     console.log('................ Server Start ....................');

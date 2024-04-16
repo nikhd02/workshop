@@ -50,8 +50,35 @@ app.post('/api/products',async (req, res) =>{
     )
     // res.send("Work in progress");
     
-})
+});
 
-// app.delete()
+app.put('/api/products/:id', async (req, res) =>{
+    const arr = JSON.parse(await fsPromises.readFile("./data1.json", "utf8"))
+    // console.log(req);
+    
+    res.send(" Work in progress ");
+    const data =req.body;
+    const requid = parseInt(req.params.id);
+    const newArr  = arr.map((elem) =>{
+        if(elem.id==requid)return data;
+        else return elem;
+    });
+    fsPromises.writeFile("./data1.json", JSON.stringify(newArr));
+});
+
+
+app.delete('/api/products/:id', async(req, res) =>{
+    const data =req.body;
+    const arr = JSON.parse(await fsPromises.readFile("./data1.json", "utf8"));
+    const requid = parseInt(req.params.id);
+    res.send("Work in progress");
+    const newArr  = arr.filter((elem) =>{
+        if(elem.id==requid)return data;
+        else return elem;
+    });
+
+    fsPromises.writeFile("./data1.json", JSON.stringify(newArr));
+
+})
 
 app.listen(1400);

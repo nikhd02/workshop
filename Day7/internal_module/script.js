@@ -161,6 +161,16 @@ const htmlTemplate = `
             font-size: 14px;
             line-height: 1.6;
         }
+        header{
+            color:white;
+            text-align:center
+            font-size:80px;
+            background-color: black;
+            padding: 10px;
+            border:4px solid white;
+            border-radius: 10px;
+            margin: 10px;
+        }
         
 
             // div{
@@ -193,6 +203,7 @@ const htmlTemplate = `
         </style>
     </head>
     <body>
+        <header>Product</header>
         _PRODUCTS_CARDS_
 
     </body>

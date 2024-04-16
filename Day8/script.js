@@ -68,14 +68,10 @@ app.put('/api/products/:id', async (req, res) =>{
 
 
 app.delete('/api/products/:id', async(req, res) =>{
-    const data =req.body;
     const arr = JSON.parse(await fsPromises.readFile("./data1.json", "utf8"));
     const requid = parseInt(req.params.id);
     res.send("Work in progress");
-    const newArr  = arr.filter((elem) =>{
-        if(elem.id==requid)return data;
-        else return elem;
-    });
+    const newArr  = arr.filter((elem) => elem.id != requid);
 
     fsPromises.writeFile("./data1.json", JSON.stringify(newArr));
 

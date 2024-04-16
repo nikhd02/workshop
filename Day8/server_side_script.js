@@ -2,10 +2,18 @@
 const fs = require("fs");
 const http = require("http")
 const url = require('node:url');
+const { title } = require("process");
 const data = fs.readFileSync("./data.json", "utf-8");
 const dataObj = JSON.parse(data).products;
 
 // console.log(dataObj);
+
+const inputElement = `
+    <form action="/product">
+        <input type="text" name="pName" placeholder="Search">
+        <input type="submit" value="Search">
+    </form>`
+
 
 const cardTemplete = `
 <div class="container">
@@ -71,7 +79,9 @@ const htmlTemplate = `
   
           header{
               color:white;
-              font-size:;
+              font-size: 50px;
+              margin-bottom: 8px;
+              text-align: center;
               background-color: black;
               padding: 10px;
               border:4px solid white;
@@ -81,12 +91,12 @@ const htmlTemplate = `
           </style>
         </head>
     <body>
-        <header>Product
-        <form style=" text-align:right; ">
-        <input type="text" name="search" id="search" placeholder="Search">
-        <input type="submit" value="Search">
-        </form>
-        </header>
+    <header>Product
+    <form action="/product">
+         <input type="text" name="pName" placeholder="Search">
+         <input type="submit" value="Search">
+    </form>
+    </header>
         _PRODUCTS_CARDS_
 
     </body>
@@ -111,11 +121,12 @@ for(let i=0;i<dataObj.length;i++){
 }
 
 result = result.join(' ');
+
 result = htmlTemplate.replace('_PRODUCTS_CARDS_', result)
 // console.log(result);
 
 const server = http.createServer((req, res) =>{
-    // res.writeHead(200, { 'Content-Type': 'text/html' });
+    res.writeHead(200, { 'Content-Type': 'text/html' });
     const route = req.url;
     const path = url.parse(route, true);
     const q = path.query
@@ -128,6 +139,42 @@ const server = http.createServer((req, res) =>{
     }
     else if(path.pathname == "/product"){
         const id = q.id;
+        const pName = q.pName;
+        if(!id){
+            const searchResult = dataObj.filter(({title}) =>{
+                if(title.includes(pName)){
+                    return true;
+                }
+                else{
+                    false;
+                }
+            })
+            const item = dataObj[title];
+            res.end(`
+            
+            <div style=" display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px; ">
+                <div style="  border: 1px solid #ccc;
+                border-radius: 8px;
+                padding: 16px;
+                width: 300px; /* Fixed width for each card */
+                margin-bottom: 16px; /* Optional: if you want some space between the rows */
+                text-align: center;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.1); ">
+                    <h2>${item.title}</h2>
+                    <img style=" max-width: 100%;
+                    height: auto;
+                    margin-bottom: 8px; " src="${item.images[0]}" alt="">
+                    <p>${item.description}</p>
+                    <h3>${item.price}</h3>
+                    <a href="/home"><button>Back to home</button></a>
+                </div>
+            </div>
+
+            `);
+        } else {
         const iteam = dataObj[id];
         res.end(`
             <div style=" display: flex;
@@ -151,6 +198,7 @@ const server = http.createServer((req, res) =>{
                 </div>
             </div>
         `);
+        }
         
     }
     else{

@@ -4,16 +4,32 @@ const fs = require('fs')
 const fsPromises = require("fs/promises");
 const ProductController = require('./controllers_/productsControllers.js')
 const userController = require('./controllers_/userController.js')
+const productRouter = require('./route/productRoute.js')
+const userRouter = require('./route/userRoute.js')
 
 app.use(express.json())
 
-app.use((req, res, next) => {
+// app.use((req, res, next) => {
 
-    console.log(req.url);
-    const time = new Date().toLocaleString();
-    const append = fsPromises.appendFile('log.txt', req.url + '\t' + time + '\n')
-    next();
-})
+//     console.log(req.url);
+//     const time = new Date().toLocaleString();
+//     const append = fsPromises.appendFile('log.txt', req.url + '\t' + time + '\n')
+//     next();
+// });
+
+// const productRouter = express.Router();
+// const userRouter = express.Router();
+
+// app.use('/api/products', productRouter);
+// app.use('/api/users', userRouter);
+
+// productRouter.route('/')
+//     .get(ProductController.getAllProducts)
+//     .post(ProductController.addProduct)
+
+// productRouter.route('/:id')
+//     .put(ProductController.updateProduct)
+    //.delete(ProductController.deleteProduct)
 
 // app.get('/home', (req, res) => {
 //     res.send('Hello World')
@@ -68,11 +84,13 @@ app.listen(1164, () => {
 
 
 
-app.route('/api/products')
-    .get(ProductController.getAllProducts)
-    .post(ProductController.addProduct);
+// app.route('/api/products')
+//     .get(ProductController.getAllProducts)
+//     .post(ProductController.addProduct);
 
-app.route('/api/user')
-    .get(userController.getUser)
-    .post(userController.addUser)
-    .put(userController.updateUser)
+// app.route('/api/user')
+//     .get(userController.getUser)
+//     .post(userController.addUser)
+//     .put(userController.updateUser)
+app.use('/api/products', productRouter);
+app.use('/api/user', userRouter);

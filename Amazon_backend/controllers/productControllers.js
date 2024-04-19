@@ -1,15 +1,34 @@
-
-const productModel = require('../models/productModel.js')
+const { Query } = require('mongoose');
+const productModel = require('../models/productModel.js');
+const { response } = require('express');
 
 const getAllProducts = async (req, res) =>{
-    const data = await productModel.find();
-    console.log(data)
+    const {sort='price', page = 1, pageSize = 3, ...q} = req.query;
+    const sortStr = sort.split(',').join(' ');
+    console.log(q);
+    // const data = await productModel.find();
+
+    let query = productModel.find(q);
+
+    query = query.sort(sortStr);
+
+    const skip = pageSize*(page - 1);
+    // const limit = 3;
+
+    query = query.skip(skip).limit(pageSize);
+
+
+    const product = await query;
+
+
+    // console.log(data)
     console.log(req.url)
     res.json({
         status: 'success',
         message: 'All products',
         data: {
-            products: data,
+            // products: data,
+            products: product,
         }
     })
 }

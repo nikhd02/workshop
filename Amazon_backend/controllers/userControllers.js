@@ -2,7 +2,7 @@
 const UserModel = require('../models/userModel.js')
 
 const getAllUser = async (req, res) =>{
-    const data = await userModel.find();
+    const data = await UserModel.find();
     console.log(data)
     console.log(req.url)
     res.json({

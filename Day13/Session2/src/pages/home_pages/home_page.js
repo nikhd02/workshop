@@ -1,19 +1,22 @@
-import Carousal from "./carousal";
-import Catgegory from "./catgegoryRow";
-import Navbar from "./navbar";
-import Card from "./card";
+// HomePage.js
+import React from 'react';
+import Navbar from './navbar';
+import CategoryRow from './catgegoryRow';
+import Carousal from './carousal';
+import Card from './card';
 
 const HomePage = () => {
-    return(
-        <div>
+    return (
+        <div className="home-page">
             <Navbar />
-            <Catgegory />
+            <CategoryRow />
             <Carousal />
-            <Card />
+            <div className="product-section">
+                <h2>Featured Products</h2>
+                <Card />
+            </div>
         </div>
-
-        // <div>HomePage</div>
     );
-}
+};
 
 export default HomePage;

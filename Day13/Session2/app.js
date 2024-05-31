@@ -2,6 +2,8 @@ import ReactDOM from 'react-dom/client';
 import React from 'react';
 // import Card from '../Session2/src/pages/home_pages/card'
 import HomePage from './src/pages/home_pages/home_page';
+import ProductPage from './src/pages/product_page/product_page';
+import SearchPage from './src/pages/search_page/search_page';
 
 const parent = document.getElementById('root');
 const root = ReactDOM.createRoot(parent);
@@ -44,9 +46,31 @@ const App =()=>{
         // <Card title='Mixer' prise='10,500'/> */}
     // </div>
     // )
-
-    return <HomePage/>
+        let path = window.location.pathname;
+    return (
+        <>
+            {path === '/'&&<HomePage/>}
+            {path === '/products'&&<ProductPage/>}
+            {path === '/search'&&<SearchPage/>}
+            {/* <Footer/> */}
+        </>
+    );
+    // <HomePage/>
 }
 
 // console.log(Heading())
 root.render(<App/>);
+
+
+// import React from 'react';
+// import ReactDOM from 'react-dom/client';
+// import ProductMain from './src/pages/product_page/product_page';
+
+// const parent = document.getElementById('root');
+// const root = ReactDOM.createRoot(parent);
+
+// const App = () => {
+//     return <ProductMain />;
+// }
+
+// root.render(<App />);

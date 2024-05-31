@@ -1,0 +1,132 @@
+*{
+    padding: 0;
+    margin: 0;
+
+}
+body{
+    background-color: black;
+}
+ .headerContainer {
+    display: flex;
+    justify-content: space-between ;
+    align-items: center;
+    padding: 10px 30px;
+    height: 60px;
+    
+    background-color: #333;
+    color: white;
+
+    a{
+        color: white;
+        text-decoration: none;
+        margin: 10px;
+        padding: 20px;
+        font-size: medium;
+        
+    }
+    a:hover{
+        border: 1px solid #ccc;
+        background-color: #5f5f60;
+        border-radius: 10px;
+    }
+
+    .left{
+        color: aliceblue;
+    }
+
+    .right{
+        color: darkgrey;
+    }
+    input{
+        width: 40%;
+        padding: 10px;
+        border: none;
+
+    }
+}
+
+.left {
+    flex: 1;
+    text-align: left;
+}
+
+.right {
+    
+    text-align: right;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+.navimg{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+
+.homePage {
+    font-family: Arial, sans-serif;
+}
+
+.mainContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: aliceblue;
+    justify-content: center;
+    height: calc(100vh - 50px); /* Adjust height to account for the navbar */
+    text-align: center;
+    padding: 20px;
+}
+
+.mainContent h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.mainContent p {
+    font-size: 1.2em;
+    margin-bottom: 40px;
+}
+
+.primaryButton {
+    padding: 10px 20px;
+    font-size: 1em;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;    
+}
+
+.primaryButton::backdrop{
+    background-color: #0056b3;
+}
+
+.generatedImage {
+    max-width: 60%;
+    height: auto;
+    /* margin-bottom: 20px; */
+}
+
+.imageInput {
+    padding: 10px;
+    font-size: 1em;
+    margin-bottom: 20px;
+    width: 80%;
+    max-width: 500px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.imageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    height: fit-content;
+    margin-top: 10px;
+    padding: auto;
+    /* border: 2px dashed #ccc; */
+    overflow: visible;
+}

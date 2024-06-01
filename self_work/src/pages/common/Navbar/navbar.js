@@ -11,7 +11,7 @@ const Navbar = () => {
                 <a href="/">Home</a>
                 <a href="/image-generator">Image</a>
                 <a href="/history">History</a>
-                <a href="/oldHistory">OldHistory</a>
+                <a href="/oldhistory">OldHistory</a>
             </div>
             <div className="right">
                 {/* <input  placeholder="Search" 

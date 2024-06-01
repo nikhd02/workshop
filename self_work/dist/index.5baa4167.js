@@ -2996,7 +2996,7 @@ const router = (0, _reactRouterDom.createBrowserRouter)([
         }, undefined)
     },
     {
-        path: "/OldHistory",
+        path: "/oldhistory",
         element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _oldhistorypageDefault.default), {}, void 0, false, {
             fileName: "app.js",
             lineNumber: 31,
@@ -27314,7 +27314,7 @@ const Navbar = ()=>{
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                        href: "/oldHistory",
+                        href: "/oldhistory",
                         children: "OldHistory"
                     }, void 0, false, {
                         fileName: "src/pages/common/Navbar/navbar.js",
@@ -27741,115 +27741,183 @@ var prevRefreshSig = window.$RefreshSig$;
 $parcel$ReactRefreshHelpers$19dd.prelude(module);
 
 try {
+// // import Navbar from "../../common/Navbar/navbar";
+// // import './historystyle.css';
+// // const dummyData = [
+// //     {
+// //         id: '1',
+// //         title: 'Flower',
+// //         date: '21-02-24'
+// //     },
+// //     {
+// //         id: '2',
+// //         title: 'Laptop',
+// //         date: '21-02-24'
+// //     },
+// //     {
+// //         id: '3',
+// //         title: 'Nature',
+// //         date: '21-02-24'
+// //     },
+// //     {
+// //         id: '4',
+// //         title: 'MObile',
+// //         date: '21-02-24'
+// //     },
+// // ]
+// // const History = () => {
+// //     return (
+// //         <div >
+// //             <Navbar />
+// //             <div className="mainContent">
+// //                 <div>
+// //                     {
+// //                         dummyData.map((item) => {
+// //                             return (
+// //                                 <div className="history-card">
+// //                                     <div className="history-card-title">{item.title}</div>
+// //                                     <div className="history-card-date">{item.date}</div>
+// //                                 </div>
+// //                             )
+// //                         })
+// //                     }
+// //                 </div>
+// //             </div>
+// //         </div>
+// //     )
+// // }
+// // export default History
 // import Navbar from "../../common/Navbar/navbar";
-// import './historystyle.css';
-// const dummyData = [
-//     {
-//         id: '1',
-//         title: 'Flower',
-//         date: '21-02-24'
-//     },
-//     {
-//         id: '2',
-//         title: 'Laptop',
-//         date: '21-02-24'
-//     },
-//     {
-//         id: '3',
-//         title: 'Nature',
-//         date: '21-02-24'
-//     },
-//     {
-//         id: '4',
-//         title: 'MObile',
-//         date: '21-02-24'
-//     },
-// ]
-// const History = () => {
+// import {useState, useEffect} from "react";
+// import "./historystyle.css";
+// const HistoryPage = () => {
+//     // let data = [
+//     //     {'id':'1', title:'hello'},
+//     //     {'id':'2', title:'world'},
+//     // ];
+//     const [data, setData] = useState([{'id':'1', title:'hello'},{'id':'2', title:'world'}]);
+//     const getData = async() => {
+//         const res = await fetch('https://dummyjson.com/products');
+//         const obj = await res.json();
+//         // data = obj.products;
+//         setData(obj.products);
+//         console.log(data);
+//     }
+//     useEffect(() => {
+//         getData();
+//     }, []);
 //     return (
-//         <div >
+//         <div>
 //             <Navbar />
-//             <div className="mainContent">
-//                 <div>
-//                     {
-//                         dummyData.map((item) => {
-//                             return (
-//                                 <div className="history-card">
-//                                     <div className="history-card-title">{item.title}</div>
-//                                     <div className="history-card-date">{item.date}</div>
-//                                 </div>
-//                             )
-//                         })
-//                     }
-//                 </div>
+//             <div className="history-container">
+//                 {data.map((item)=>(
+//                         <div key={item.id}>
+//                             {item.title}
+//                         </div>
+//                     ))
+//                 }
 //             </div>
 //         </div>
 //     )
-// }
-// export default History
+// };
+// export default HistoryPage;
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _navbar = require("../../common/Navbar/navbar");
 var _navbarDefault = parcelHelpers.interopDefault(_navbar);
 var _react = require("react");
+var _reactRouterDom = require("react-router-dom");
 var _historystyleCss = require("./historystyle.css");
 var _s = $RefreshSig$();
 const HistoryPage = ()=>{
     _s();
-    // let data = [
-    //     {'id':'1', title:'hello'},
-    //     {'id':'2', title:'world'},
-    // ];
-    const [data, setData] = (0, _react.useState)([
-        {
-            "id": "1",
-            title: "hello"
-        },
-        {
-            "id": "2",
-            title: "world"
-        }
-    ]);
+    const [data, setData] = (0, _react.useState)([]);
+    const [searchText, setSearchText] = (0, _react.useState)("");
     const getData = async ()=>{
-        const res = await fetch("https://dummyjson.com/products");
+        const res = await fetch(`https://dummyjson.com/products/search?q=${searchText}`);
         const obj = await res.json();
-        // data = obj.products;
         setData(obj.products);
-        console.log(data);
+        console.log("getData:: ", data);
     };
     (0, _react.useEffect)(()=>{
         getData();
-    }, []);
+    }, [
+        searchText
+    ]);
+    console.log("normal rendering flow", data);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navbarDefault.default), {}, void 0, false, {
                 fileName: "src/pages/history/history/historypage.js",
-                lineNumber: 77,
+                lineNumber: 119,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                onChange: (e)=>{
+                    setSearchText(e.target.value);
+                }
+            }, void 0, false, {
+                fileName: "src/pages/history/history/historypage.js",
+                lineNumber: 120,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "history-container",
-                children: data.map((item)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        children: item.title
-                    }, item.id, false, {
+                className: "history-main-container",
+                children: data.map((item)=>{
+                    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "history-card",
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                className: "Pic",
+                                src: item.thumbnail
+                            }, void 0, false, {
+                                fileName: "src/pages/history/history/historypage.js",
+                                lineNumber: 125,
+                                columnNumber: 29
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
+                                children: item.title
+                            }, void 0, false, {
+                                fileName: "src/pages/history/history/historypage.js",
+                                lineNumber: 126,
+                                columnNumber: 29
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                children: item.description
+                            }, void 0, false, {
+                                fileName: "src/pages/history/history/historypage.js",
+                                lineNumber: 127,
+                                columnNumber: 29
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                                to: `/history/${item.id}`,
+                                children: "More"
+                            }, void 0, false, {
+                                fileName: "src/pages/history/history/historypage.js",
+                                lineNumber: 128,
+                                columnNumber: 29
+                            }, undefined)
+                        ]
+                    }, void 0, true, {
                         fileName: "src/pages/history/history/historypage.js",
-                        lineNumber: 80,
+                        lineNumber: 124,
                         columnNumber: 25
-                    }, undefined))
+                    }, undefined);
+                })
             }, void 0, false, {
                 fileName: "src/pages/history/history/historypage.js",
-                lineNumber: 78,
+                lineNumber: 121,
                 columnNumber: 13
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/pages/history/history/historypage.js",
-        lineNumber: 76,
+        lineNumber: 118,
         columnNumber: 9
     }, undefined);
 };
-_s(HistoryPage, "mMJUz97WPf/aWVfmRKtEws+7EFw=");
+_s(HistoryPage, "HVBDfpXXJRTfmtTwpfpbn1a0Aqg=");
 _c = HistoryPage;
 exports.default = HistoryPage;
 var _c;
@@ -27860,76 +27928,7 @@ $RefreshReg$(_c, "HistoryPage");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","../../common/Navbar/navbar":"2Xn2v","react":"21dqq","./historystyle.css":"6fS2E","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"6fS2E":[function() {},{}],"joM2p":[function(require,module,exports) {
-// import Navbar from "../../common/Navbar/navbar";
-// import {useState, useEffect} from "react";
-// import "./historystyle.css";
-// // const dummyData = [
-// //     {
-// //         id:'1',
-// //         title:'Flower',
-// //         date: {
-// //             day: 'Sun',
-// //             time: '21:00',
-// //         },
-// //     },
-// //     {
-// //         id:'2',
-// //         title:'Electronics',
-// //     },
-// // ];
-// // const changeTitle = ()=>{console.log('Title changed');}
-// // const changeDescription = ()=>{console.log('Description changed');}
-// // const temp = ()=>{
-// //     changeTitle(); 
-// //     changeDescription();
-// // }
-// const HistoryPage = () => {
-//     const[title, setTitle] = useState("Images");
-//     const[description, setDescription] = useState("These are Images");
-// // setTimeout(func,time)
-//     useEffect(()=>{
-//         console.log('Nothing = Every time when the page is re0-rendered')
-//     });
-//     useEffect(()=>{
-//         console.log('Only when the page is rendered first time')
-//     },[]);
-//     useEffect(()=>{
-//         console.log('Only when "title" is changed')
-//     },[title]);
-//     useEffect(()=>{
-//         console.log('When "title" _or_ "description" is changed')
-//     },[title, description]);
-//     return (
-//         <div>
-//             <Navbar />
-//             <div className="history-main-container">
-//                 {/* <button onClick={changeTitle}>Change title</button> <br/>
-//                 <button onClick={temp}>Change title and Description</button> <br/>
-//                 <button onClick={changeDescription}>Change Description</button> <br/> */}
-//                 <input value={title} onChange={(e)=>{setTitle(e.target.value)}}/><br />
-//                 <input  value={description} onChange={(e)=>{setDescription(e.target.value)}}/><br />
-//                 <h3>Title = {title}</h3>
-//                 <h3>description = {description}</h3>
-//                 {/* <div>
-//                     {dummyData.map((elem)=>{
-//                             return(
-//                                 <div key={elem.id}>
-//                                     <h3>{elem.title} hello</h3>
-//                                     <p>{elem.date?.day}</p>
-//                                     <p>{elem.date?.time}</p>
-//                                 </div>
-//                             )
-//                         })
-//                     }
-//                 </div> */}
-//             </div>
-//         </div>
-//     )
-// };
-// export default HistoryPage;
-
-},{}],"9xmpe":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./historystyle.css":"6fS2E","../../common/Navbar/navbar":"2Xn2v","react-router-dom":"9xmpe"}],"6fS2E":[function() {},{}],"9xmpe":[function(require,module,exports) {
 /**
  * React Router DOM v6.23.1
  *
@@ -34622,6 +34621,109 @@ function persistAppliedTransitions(_window, transitions) {
     }
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["hPIHA","1xC6H","igcvL"], "igcvL", "parcelRequired3c3")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"joM2p":[function(require,module,exports) {
+// import Navbar from "../../common/Navbar/navbar";
+// import {useState, useEffect} from "react";
+// import "./historystyle.css";
+// // // // const dummyData = [
+// // // //     {
+// // // //         id:'1',
+// // // //         title:'Flower',
+// // // //         date: {
+// // // //             day: 'Sun',
+// // // //             time: '21:00',
+// // // //         },
+// // // //     },
+// // // //     {
+// // // //         id:'2',
+// // // //         title:'Electronics',
+// // // //     },
+// // // // ];
+// // // // const changeTitle = ()=>{console.log('Title changed');}
+// // // // const changeDescription = ()=>{console.log('Description changed');}
+// // // // const temp = ()=>{
+// // // //     changeTitle(); 
+// // // //     changeDescription();
+// // // // }
+// // const HistoryPage = () => {
+// //     const[title, setTitle] = useState("Images");
+// //     const[description, setDescription] = useState("These are Images");
+// // // setTimeout(func,time)
+// //     useEffect(()=>{
+// //         console.log('Nothing = Every time when the page is re0-rendered')
+// //     });
+// //     useEffect(()=>{
+// //         console.log('Only when the page is rendered first time')
+// //     },[]);
+// //     useEffect(()=>{
+// //         console.log('Only when "title" is changed')
+// //     },[title]);
+// //     useEffect(()=>{
+// //         console.log('When "title" _or_ "description" is changed')
+// //     },[title, description]);
+// //     return (
+// //         <div>
+// //             <Navbar />
+// //             <div className="history-main-container">
+// //                 {/* <button onClick={changeTitle}>Change title</button> <br/>
+// //                 <button onClick={temp}>Change title and Description</button> <br/>
+// //                 <button onClick={changeDescription}>Change Description</button> <br/> */}
+// //                 <input value={title} onChange={(e)=>{setTitle(e.target.value)}}/><br />
+// //                 <input  value={description} onChange={(e)=>{setDescription(e.target.value)}}/><br />
+// //                 <h3>Title = {title}</h3>
+// //                 <h3>description = {description}</h3>
+// //                 {/* <div>
+// //                     {dummyData.map((elem)=>{
+// //                             return(
+// //                                 <div key={elem.id}>
+// //                                     <h3>{elem.title} hello</h3>
+// //                                     <p>{elem.date?.day}</p>
+// //                                     <p>{elem.date?.time}</p>
+// //                                 </div>
+// //                             )
+// //                         })
+// //                     }
+// //                 </div> */}
+// //             </div>
+// //         </div>
+// //     )
+// // };
+// // export default HistoryPage;
+// const OldHistory = () => {
+//     const [data, setData] = useState([]);
+//     const [searchText, setSearchText] = useState("");
+//     const getData = async () => {
+//         const res = await fetch('https://dummyjson.com/products/search?q=${searchText}');
+//         const obj = await res.json();
+//         setData(obj.products);
+//         console.log(data);
+//     }
+//     useEffect(() => {
+//         getData(searchText);
+//     }, [searchText])
+//     // getData();
+//     return (
+//         <div >
+//             <Navbar />
+//             <input onChange={(e) => {
+//                 setSearchText(e.target.value)
+//             }} />
+//             <div className="history-container">
+//                 <h2>Image Generator</h2>
+//                 {data.map((item) => {
+//                     return (
+//                         <div className="history-cart">
+//                             <h3>{item.title}</h3>
+//                             <p>{item.description}</p>
+//                         </div>
+//                     )
+//                 })}
+//             </div>
+//         </div>
+//     )
+// };
+// export default OldHistory;
+
+},{}]},["hPIHA","1xC6H","igcvL"], "igcvL", "parcelRequired3c3")
 
 //# sourceMappingURL=index.5baa4167.js.map

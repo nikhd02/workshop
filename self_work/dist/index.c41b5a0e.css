@@ -1,54 +1,34 @@
-.history-container {
-  color: #eae6ee;
-}
-
 .history-main-container {
-  text-align: center;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  display: flex;
-}
-
-input {
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  width: 80%;
-  max-width: 500px;
-  margin-bottom: 10px;
-  padding: 10px;
-  font-size: 1em;
-}
-
-button {
   color: #fff;
-  cursor: pointer;
-  background-color: #007bff;
-  border: none;
-  border-radius: 5px;
-  margin-bottom: 20px;
-  padding: 10px 20px;
-  font-size: 1em;
-  transition: background-color .3s;
-}
-
-button:hover {
-  background-color: #0056b3;
-}
-
-.imageContainer {
-  justify-content: center;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
   align-items: center;
-  margin-top: 20px;
+  gap: 24px;
+  padding: 24px 48px;
   display: flex;
 }
 
-.generatedImage {
-  object-fit: contain;
-  border: 2px solid #ccc;
-  border-radius: 10px;
-  max-width: 50%;
-  max-height: 400px;
+.history-card {
+  border: 1px solid gray;
+  max-width: 300px;
+  padding: 16px;
+
+  & p {
+    color: #e0dbdb;
+  }
+
+  & .Pic {
+    align-items: center;
+    max-width: 60%;
+    height: auto;
+  }
+}
+
+.search-box-input {
+  align-items: center;
+  width: 200px;
+  margin: 16px auto;
+  padding: 4px 8px;
+  display: block;
 }
 /*# sourceMappingURL=index.c41b5a0e.css.map */
